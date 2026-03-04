@@ -1,28 +1,22 @@
-public class Point {
-
-    public double x = 5;
-
-    public double y = 10;
-
-    public Point(double x, double y){
-        this.x = x;
-        this.y =y;
-    }
-
+public class Point{
+    public double x;
+    public double y;
     public String toString(){
-        String napis = "x="+this.x + " y=" +y;
-        return napis;
+        return "Punkt: (" + x + ", " + y + ")";
     }
-    public String toSvg(){
-        String napis = "<circle r=\"45\" cx=\""+x+ "\" cy=\"" +y+ "\" fill=\"red\" />";
-        return napis;
+    String toSvg(){
+        return "<circle cx=\"" + x + "\" cy=\"" + y + "\" r=\"5\" fill=\"black\" />";
     }
     public void translate(double dx, double dy){
-    this.x += dx;
-    this.y += dy;
+        this.x += dx;
+        this.y += dy;
     }
     public Point translated(double dx, double dy){
-        return new Point(this.x+dx, this.y+dy);
+        Point nowyPunkt = new Point();
+        nowyPunkt.x = this.x +dx;
+        nowyPunkt.x = this.x + dx;
+        nowyPunkt.y = this.y + dy;
+        return nowyPunkt;
     }
 
 }
