@@ -11,5 +11,9 @@ public class Main {
         Poryginal1.setX(999);
         System.out.println("Zepsuty punkt: " + Poryginal1.toString());
         System.out.println("Odcinek pozostaje niewrazliwy: " +s.toString());
+        Point[] punkty = {new Point(0,0), new Point(10, 0), new Point(0,10)};
+        Polygon poly = new Polygon(punkty);
+        System.out.println(poly.toString());
+        System.out.println(poly.toSvg());
     }
 }
