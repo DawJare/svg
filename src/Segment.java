@@ -1,10 +1,15 @@
 public class Segment{
-    public Point p1;
-    public Point p2;
+    private Point p1;
+    private Point p2;
+
+    public Segment(Point p1, Point p2){
+        this.p1 = new Point(p1);
+        this.p2 = new Point(p2);
+    }
 
     public double length(){
-        double dx = p2.x - p1.x;
-        double dy = p2.y - p1.y;
+        double dx = p2.getX() - p1.getX();
+        double dy = p2.getY() - p1.getY();
         return Math.sqrt(dx * dx + dy * dy);
     }
     public static Segment longestSegment(Segment[] arr){
@@ -15,5 +20,8 @@ public class Segment{
             }
         }
         return max;
+    }
+    public String toString(){
+        return "Odcinek: " + p1.toString() + " - " + p2.toString();
     }
 }
