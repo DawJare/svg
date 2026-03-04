@@ -2,7 +2,16 @@ public class Polygon {
     private Point[] points;
 
     public Polygon(Point[] points){
-        this.points = points;
+        this.points = new Point[points.length];
+        for(int i = 0; i < points.length; i++){
+            this.points[i] = new Point(points[i]);
+        }
+    }
+    public Polygon(Polygon other){
+        this.points = new Point[other.points.length];
+        for(int i = 0; i < other.points.length; i++){
+            this.points[i] = new Point(other.points[i]);
+        }
     }
     public String toString() {
         String res = "Wielokat: ";

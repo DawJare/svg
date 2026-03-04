@@ -15,5 +15,7 @@ public class Main {
         Polygon poly = new Polygon(punkty);
         System.out.println(poly.toString());
         System.out.println(poly.toSvg());
+        Polygon polykopia = new Polygon(poly);
+        System.out.println("Kopia wielokata: " +polykopia.toString());
     }
 }
