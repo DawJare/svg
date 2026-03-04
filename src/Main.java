@@ -17,5 +17,8 @@ public class Main {
         System.out.println(poly.toSvg());
         Polygon polykopia = new Polygon(poly);
         System.out.println("Kopia wielokata: " +polykopia.toString());
+        SvgScene scena = new SvgScene();
+        scena.addPolygon(poly);
+        System.out.println("Dodano do sceny!");
     }
 }
