@@ -22,5 +22,6 @@ public class Main {
         System.out.println("Dodano do sceny!");
         System.out.println("SVG z calej sceny:");
         System.out.println(scena.toSvg());
+        System.out.println("Obrys: " +poly.boundingBox().toString());
     }
 }
