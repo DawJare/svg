@@ -20,5 +20,7 @@ public class Main {
         SvgScene scena = new SvgScene();
         scena.addPolygon(poly);
         System.out.println("Dodano do sceny!");
+        System.out.println("SVG z calej sceny:");
+        System.out.println(scena.toSvg());
     }
 }
