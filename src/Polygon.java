@@ -1,43 +1,36 @@
-public class Polygon {
-    private Point[] points;
+import java.util.Locale;
 
-    public Polygon(Point[] points){
-        this.points = new Point[points.length];
-        for(int i = 0; i < points.length; i++){
-            this.points[i] = new Point(points[i]);
+public class Polygon implements Shape{
+    private Vec2[] points;
+    public Polygon(Vec2[] points) {
+        this.points = new Vec2[points.length];
+        for(int i =0; i < points.length; i++)
+        {
+            this.points[i] = new Vec2(points[i]);
         }
     }
-    public Polygon(Polygon other){
-        this.points = new Point[other.points.length];
-        for(int i = 0; i < other.points.length; i++){
-            this.points[i] = new Point(other.points[i]);
+
+    @Override
+    public BoundingBox boundingBox() {
+        double xMin = this.points[0].x();
+        double xMax = this.points[0].x();
+        double yMin = this.points[0].y();
+        double yMax = this.points[0].y();
+
+        for (int i = 1; i < points.length; i++) {
+            xMin = Math.min(xMin, points[i].x());
+            xMax = Math.max(xMax, points[i].x());
+            yMin = Math.min(yMin, points[i].y());
+            yMax = Math.max(yMax, points[i].y());
         }
+        return new BoundingBox(xMin, yMin, xMax - xMin, yMax - yMin);
     }
-    public String toString() {
-        String res = "Wielokat: ";
-        for (int i = 0; i < points.length; i++) {
-            res += points[i].toString() + " ";
+
+    public String toSvg()    {
+        String pointsString = "";
+        for(Vec2 point : points) {
+            pointsString += point.x() + "," + point.y() + " ";
         }
-        return res;
-    }
-    public String toSvg(){
-        String coords = "";
-        for(int i = 0; i < points.length; i++){
-            coords += points[i].getX() + "," + points[i].getY() + " ";
-        }
-        return "<polygon points=\"" + coords + "\" fill=\"none\" stroke=\"black\" />";
-    }
-    public BoundingBox boundingBox(){
-        double minX = points[0].getX();
-        double minY = points[0].getY();
-        double maxX = points[0].getX();
-        double maxY = points[0].getY();
-        for(int i = 1; i < points.length; i++){
-            if(points[i].getX() < minX) minX = points[i].getX();
-            if(points[i].getX() > maxX) maxX = points[i].getX();
-            if(points[i].getY() < minY) minY = points[i].getY();
-            if(points[i].getX() > maxY) maxY = points[i].getY();
-        }
-        return new BoundingBox(minX, minY, maxX - minX, maxY - minY);
+        return String.format(Locale.ENGLISH, "<polygon points=\"%s\" />", pointsString);
     }
 }
