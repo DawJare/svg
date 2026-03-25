@@ -26,6 +26,11 @@ public class Person implements Comparable<Person>{
         }
         return java.util.Collections.max(children);
     }
+    public java.util.List<Person> getChildren(){
+        java.util.List<Person> sortedChildren = new java.util.ArrayList<>(children);
+        java.util.Collections.sort(sortedChildren);
+        return sortedChildren;
+    }
     public String getFullName(){
         return firstName + " " + lastName;
     }
