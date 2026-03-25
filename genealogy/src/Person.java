@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Person{
+public class Person implements Comparable<Person>{
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
@@ -16,6 +16,15 @@ public class Person{
     }
     public boolean adopt(Person child){
         return children.add(child);
+    }
+    public int compareTo(Person other){
+        return this.birthDate.compareTo(other.birthDate);
+    }
+    public Person getYoungestChild(){
+        if(children.isEmpty()){
+            return null;
+        }
+        return java.util.Collections.max(children);
     }
     public String getFullName(){
         return firstName + " " + lastName;
