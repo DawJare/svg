@@ -34,4 +34,7 @@ public class Person implements Comparable<Person>{
     public String getFullName(){
         return firstName + " " + lastName;
     }
+    public String toString(){
+        return firstName + " " + lastName + " (ur. " + birthDate + ")";
+    }
 }
