@@ -1,0 +1,5 @@
+org/example/Main.class
+database/DatabaseConnection.class
+Main.class
+auth/Account.class
+auth/AccountManager.class
